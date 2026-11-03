@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <title>2025年高质量发展考核 - 济南市天桥区统计局</title>
 
-    <!-- Description for search engines -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("obsidian-theme");
+                var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                var requested = new URLSearchParams(window.location.search).get("theme");
+                document.documentElement.dataset.theme =
+                    requested === "light" || requested === "dark" ? requested : saved || preferred;
+            } catch (error) {
+                document.documentElement.dataset.theme = "light";
+            }
+        })();
+    </script>
+
     
     <meta name="description" content="| 完成度(%) | 得分 | | ------ | ----- | | 100+ | 0.6-1 | | 90-99 | 0.5 | | 80-89 | 0.4 | | 70-79 | 0.3 | | 60-69 | 0.2 | | 00-59 | 0 |">
     
 
-    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
     <meta property="og:type" content="article">
     <meta property="og:title" content="2025年高质量发展考核">
     
@@ -22,157 +35,124 @@
     
     <meta property="og:site_name" content="济南市天桥区统计局">
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="2025年高质量发展考核">
-    
-    <meta name="twitter:description" content="| 完成度(%) | 得分 | | ------ | ----- | | 100+ | 0.6-1 | | 90-99 | 0.5 | | 80-89 | 0.4 | | 70-79 | 0.3 | | 60-69 | 0.2 | | 00-59 | 0 |">
-    
-    
-    <meta name="twitter:image" content="https://mododu.github.io/myk/assets/images/default-preview.png">
-    
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/myk/static/main.css">
+    <link rel="stylesheet" type="text/css" href="/myk/static/obsidian-ui.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
 
-    <!-- Atom Feed autodiscovery -->
     
     <link rel="alternate" type="application/atom+xml" title="济南市天桥区统计局" href="https://mododu.github.io/myk/feed.xml">
     
 </head>
-<body>
-    <nav class="top-nav">
-        
-            
-            <a href="/myk/wiki/测试/">
-                
-                    贸易专业资料
-                
-            </a>
-        
-    </nav>
+<body class="obsidian-layout">
+    <div class="app-shell"
+         data-current-url="/wiki/2025年高质量发展考核/"
+         data-search-index-url="/wiki/search.json">
 
-    
-    <div class="search-overlay" data-search-overlay hidden>
-        <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search">
-            <input type="search" class="search-input" placeholder="Search pages…" autocomplete="off"
-                   spellcheck="false" aria-label="Search query" data-search-input>
-            <ul class="search-results" data-search-results></ul>
-            <p class="search-empty" data-search-empty hidden>No matching pages.</p>
-        </div>
-    </div>
-    <script>
-        (function () {
-            var overlay = document.querySelector("[data-search-overlay]");
-            if (!overlay) return;
-            var input = overlay.querySelector("[data-search-input]");
-            var list = overlay.querySelector("[data-search-results]");
-            var empty = overlay.querySelector("[data-search-empty]");
-            var indexUrl = "/myk/wiki/search.json";
-            var pages = null, loading = false, active = -1;
+        <aside class="vault-sidebar" id="vault-sidebar" aria-label="文件列表">
+            <header class="sidebar-header">
+                <a class="vault-brand" href="/myk/" aria-label="返回首页">
+                    <span class="vault-logo" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M5 4.8A1.8 1.8 0 0 1 6.8 3H19v18H6.8A1.8 1.8 0 0 1 5 19.2V4.8Z"/>
+                            <path d="M8 3v18M11 8h5M11 12h4"/>
+                        </svg>
+                    </span>
+                    <span class="vault-brand-text">
+                        <strong>济南市天桥区统计局</strong>
+                        <small>OBSIDIAN VAULT</small>
+                    </span>
+                </a>
+                <button class="icon-button sidebar-close" type="button"
+                        data-sidebar-close aria-label="关闭文件列表">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="m6 6 12 12M18 6 6 18"/>
+                    </svg>
+                </button>
+            </header>
 
-            function loadIndex() {
-                if (pages || loading) return;
-                loading = true;
-                fetch(indexUrl).then(function (r) { return r.json(); }).then(function (data) {
-                    pages = data;
-                    if (overlay.getAttribute("hidden") === null) render(input.value);
-                }).catch(function () { loading = false; });
-            }
+            <div class="sidebar-search-wrap">
+                <label class="sidebar-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6.5"/>
+                        <path d="m16 16 4 4"/>
+                    </svg>
+                    <input type="search" data-file-search
+                           placeholder="搜索笔记..."
+                           aria-label="搜索笔记"
+                           autocomplete="off"
+                           spellcheck="false">
+                    <kbd>Ctrl K</kbd>
+                </label>
+            </div>
 
-            function score(page, q) {
-                var title = (page.title || "").toLowerCase();
-                var tags = (page.tags || []).join(" ").toLowerCase();
-                var content = (page.content || "").toLowerCase();
-                if (title.indexOf(q) === 0) return 4;
-                if (title.indexOf(q) !== -1) return 3;
-                if (tags.indexOf(q) !== -1) return 2;
-                if (content.indexOf(q) !== -1) return 1;
-                return 0;
-            }
+            <div class="sidebar-section-heading">
+                <span>文件</span>
+                <span class="file-count" data-file-count>读取中</span>
+            </div>
 
-            function render(query) {
-                var q = query.trim().toLowerCase();
-                list.innerHTML = "";
-                active = -1;
-                if (!q) { empty.setAttribute("hidden", ""); return; }
-                if (!pages) { loadIndex(); return; }
-                var matches = pages.map(function (p) { return { p: p, s: score(p, q) }; })
-                    .filter(function (m) { return m.s > 0; })
-                    .sort(function (a, b) { return b.s - a.s || a.p.title.localeCompare(b.p.title); })
-                    .slice(0, 12);
-                if (!matches.length) { empty.removeAttribute("hidden"); return; }
-                empty.setAttribute("hidden", "");
-                matches.forEach(function (m) {
-                    var li = document.createElement("li");
-                    var a = document.createElement("a");
-                    a.href = m.p.url;
-                    a.className = "search-result";
-                    a.textContent = m.p.title;
-                    li.appendChild(a);
-                    list.appendChild(li);
-                });
-            }
+            <nav class="file-tree" data-file-tree aria-label="公开笔记">
+                <div class="tree-loading">
+                    <span class="loading-dot"></span>
+                    正在载入文件列表
+                </div>
+                <noscript>文件列表需要启用 JavaScript。</noscript>
+            </nav>
 
-            function setActive(next) {
-                var items = list.querySelectorAll(".search-result");
-                if (!items.length) return;
-                if (active >= 0 && items[active]) items[active].classList.remove("is-active");
-                active = (next + items.length) % items.length;
-                items[active].classList.add("is-active");
-                items[active].scrollIntoView({ block: "nearest" });
-            }
+            <footer class="sidebar-footer">
+                <div class="vault-status">
+                    <span class="vault-status-dot" aria-hidden="true"></span>
+                    <span>GitHub Pages</span>
+                </div>
+                <span class="sidebar-author">屈祯</span>
+            </footer>
+        </aside>
 
-            function open() {
-                overlay.removeAttribute("hidden");
-                document.body.classList.add("search-open");
-                input.value = "";
-                render("");
-                loadIndex();
-                input.focus();
-            }
-            function close() {
-                overlay.setAttribute("hidden", "");
-                document.body.classList.remove("search-open");
-            }
+        <button class="sidebar-backdrop" type="button"
+                data-sidebar-backdrop aria-label="关闭文件列表"></button>
 
-            document.querySelectorAll("[data-search-open]").forEach(function (btn) {
-                btn.addEventListener("click", open);
-            });
-            input.addEventListener("input", function () { render(input.value); });
-            overlay.addEventListener("mousedown", function (e) {
-                if (e.target === overlay) close();
-            });
-            input.addEventListener("keydown", function (e) {
-                var items = list.querySelectorAll(".search-result");
-                if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1); }
-                else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1); }
-                else if (e.key === "Enter") {
-                    if (active >= 0 && items[active]) { window.location.href = items[active].href; }
-                    else if (items[0]) { window.location.href = items[0].href; }
-                }
-            });
-            document.addEventListener("keydown", function (e) {
-                var isOpen = overlay.getAttribute("hidden") === null;
-                if (e.key === "Escape" && isOpen) { close(); return; }
-                var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) ||
-                    document.activeElement.isContentEditable;
-                if (!isOpen && !typing && (e.key === "/" ||
-                    ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k"))) {
-                    e.preventDefault();
-                    open();
-                }
-            });
-        })();
-    </script>
-    
+        <section class="main-workspace">
+            <header class="workspace-bar">
+                <button class="icon-button sidebar-trigger" type="button"
+                        data-sidebar-toggle aria-label="打开文件列表"
+                        aria-controls="vault-sidebar" aria-expanded="false">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
 
-    <article>
-        
+                <div class="workspace-breadcrumb" aria-label="当前位置">
+                    <a href="/myk/">资料库</a>
+                    <span class="breadcrumb-separator">/</span>
+                    <span>2025年高质量发展考核</span>
+                </div>
+
+                <div class="workspace-actions">
+                    <button class="icon-button theme-toggle" type="button"
+                            data-theme-toggle aria-label="切换深色模式" title="切换深色模式">
+                        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/>
+                        </svg>
+                        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24"
+                             fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+                        </svg>
+                    </button>
+                    <a class="icon-button" href="/myk/" aria-label="返回首页" title="返回首页">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="m3 11 9-8 9 8"/>
+                            <path d="M5 10v10h14V10M9 20v-6h6v6"/>
+                        </svg>
+                    </a>
+                </div>
+            </header>
+
+            <div class="document-scroll">
+                <main class="document-container">
+                    <article class="document-pane">
+                        
 <header>
     <h1>2025年高质量发展考核</h1>
     
@@ -243,32 +223,37 @@
 
 
 
-    </article>
+                    </article>
 
-    <div class="footer-separator"></div>
+                    <div class="footer-separator"></div>
+                    <footer class="site-footer">
+                        <p class="footer-text">
+                            
+                            &copy; 2026 屈祯
+                            
+                        </p>
+                    </footer>
+                </main>
+            </div>
+        </section>
+    </div>
 
-    <footer>
-        <p class="footer-text">
-            
-            &copy; 2026 <a href="/myk/wiki/测试/">屈祯</a>
-            
-        </p>
-    </footer>
-
-    <!-- KaTeX for math rendering -->
+    <script src="/myk/static/obsidian-ui.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false}
-                ],
-                throwOnError: false,
-                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-                ignoredClasses: ['no-katex']
-            });
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof window.renderMathInElement === "function") {
+                window.renderMathInElement(document.body, {
+                    delimiters: [
+                        {left: "$$", right: "$$", display: true},
+                        {left: "$", right: "$", display: false}
+                    ],
+                    throwOnError: false,
+                    ignoredTags: ["script", "noscript", "style", "textarea", "pre", "code"],
+                    ignoredClasses: ["no-katex"]
+                });
+            }
         });
     </script>
 </body>
