@@ -10,10 +10,9 @@
         (function () {
             try {
                 var saved = localStorage.getItem("obsidian-theme");
-                var preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                 var requested = new URLSearchParams(window.location.search).get("theme");
                 document.documentElement.dataset.theme =
-                    requested === "light" || requested === "dark" ? requested : saved || preferred;
+                    requested === "light" || requested === "dark" ? requested : saved || "light";
             } catch (error) {
                 document.documentElement.dataset.theme = "light";
             }
@@ -49,18 +48,69 @@
          data-current-url="/wiki/2025年高质量发展考核/"
          data-search-index-url="/myk/wiki/search.json">
 
+        <nav class="workspace-ribbon" aria-label="侧边工具栏">
+            <div class="ribbon-group">
+                <a class="ribbon-action ribbon-logo" href="/myk/" aria-label="资料库首页"
+                   title="资料库首页">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                        <path d="m12 2.8 7.2 4.1v8.4L12 21.2l-7.2-5.9V6.9L12 2.8Z"/>
+                        <path d="m4.8 6.9 7.2 4.4 7.2-4.4M12 11.3v9.9M8 4.7l7.2 4.3"/>
+                    </svg>
+                </a>
+                <button class="ribbon-action is-active" type="button"
+                        data-file-panel-toggle aria-label="文件列表" title="文件列表">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                        <path d="M3.5 6.5h6l2-2h3l2 2h4v12h-17z"/>
+                        <path d="M3.5 9h17"/>
+                    </svg>
+                </button>
+                <button class="ribbon-action" type="button"
+                        data-ribbon-search aria-label="搜索文件" title="搜索文件">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="10.8" cy="10.8" r="6.2"/>
+                        <path d="m15.5 15.5 4.2 4.2"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="ribbon-group ribbon-group-bottom">
+                <a class="ribbon-action" href="/myk/" aria-label="首页" title="首页">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                        <path d="m3 11 9-8 9 8"/>
+                        <path d="M5 10v10h14V10M9 20v-6h6v6"/>
+                    </svg>
+                </a>
+                <button class="ribbon-action theme-toggle" type="button"
+                        data-theme-toggle aria-label="切换深色模式" title="切换深色模式">
+                    <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"/>
+                        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/>
+                    </svg>
+                    <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                        <path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
         <aside class="vault-sidebar" id="vault-sidebar" aria-label="文件列表">
+            <div class="sidebar-view-tabs" aria-hidden="true">
+                <span class="sidebar-view-tab is-active">文件</span>
+                <span class="sidebar-view-tab">搜索</span>
+            </div>
+
             <header class="sidebar-header">
                 <a class="vault-brand" href="/myk/" aria-label="返回首页">
                     <span class="vault-logo" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <path d="M5 4.8A1.8 1.8 0 0 1 6.8 3H19v18H6.8A1.8 1.8 0 0 1 5 19.2V4.8Z"/>
-                            <path d="M8 3v18M11 8h5M11 12h4"/>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+                            <path d="m12 2.8 7.2 4.1v8.4L12 21.2l-7.2-5.9V6.9L12 2.8Z"/>
+                            <path d="m4.8 6.9 7.2 4.4 7.2-4.4M12 11.3v9.9M8 4.7l7.2 4.3"/>
                         </svg>
                     </span>
                     <span class="vault-brand-text">
                         <strong>济南市天桥区统计局</strong>
-                        <small>OBSIDIAN VAULT</small>
+                        <small>文件浏览</small>
                     </span>
                 </a>
                 <button class="icon-button sidebar-close" type="button"
@@ -87,7 +137,7 @@
             </div>
 
             <div class="sidebar-section-heading">
-                <span>文件</span>
+                <span>济南市天桥区统计局</span>
                 <span class="file-count" data-file-count>读取中</span>
             </div>
 
@@ -121,10 +171,16 @@
                     </svg>
                 </button>
 
-                <div class="workspace-breadcrumb" aria-label="当前位置">
-                    <a href="/myk/">资料库</a>
-                    <span class="breadcrumb-separator">/</span>
-                    <span>2025年高质量发展考核</span>
+                <div class="workspace-tab-list" role="tablist" aria-label="打开的文档">
+                    <div class="workspace-tab is-active" role="tab" aria-selected="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="1.7" aria-hidden="true">
+                            <path d="M6 3.5h8l4 4v13H6z"/>
+                            <path d="M14 3.5v4h4M9 12h6M9 15h5"/>
+                        </svg>
+                        <span>2025年高质量发展考核</span>
+                        <span class="workspace-tab-dot" aria-hidden="true"></span>
+                    </div>
                 </div>
 
                 <div class="workspace-actions">

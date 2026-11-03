@@ -935,3 +935,447 @@ html[data-theme="dark"] .theme-icon-moon {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ==========================================================================
+   Obsidian Moonstone fidelity pass
+   Based on the vault's current Obsidian theme: Moonstone, 17 px, #834cc8.
+   ========================================================================== */
+
+:root,
+html[data-theme="light"] {
+  --obs-bg: #ffffff;
+  --obs-bg-secondary: #f5f5f5;
+  --obs-sidebar-bg: #f5f5f5;
+  --obs-ribbon-bg: #eeeeef;
+  --obs-titlebar-bg: #f5f5f5;
+  --obs-titlebar-active: #ffffff;
+  --obs-sidebar-hover: rgba(0, 0, 0, 0.055);
+  --obs-sidebar-active: rgba(131, 76, 200, 0.105);
+  --obs-border: #e0e0e3;
+  --obs-border-strong: #d0d0d4;
+  --obs-text: #26262a;
+  --obs-text-secondary: #505055;
+  --obs-text-muted: #6f6f76;
+  --obs-text-faint: #96969e;
+  --obs-accent: #834cc8;
+  --obs-accent-hover: #6f3bb2;
+  --obs-accent-soft: rgba(131, 76, 200, 0.11);
+  --obs-shadow: 0 12px 30px rgba(24, 20, 30, 0.1);
+  --obs-code-bg: #f5f5f5;
+  --obs-inline-code-bg: #efe8f8;
+  --obs-inline-code-text: #6937a7;
+  --obs-table-head: #f5f5f5;
+  --obs-blockquote: #5e5e66;
+
+  --color-primary: #26262a;
+  --color-primary-dark: #834cc8;
+  --color-secondary: #834cc8;
+  --color-accent: #9c63dc;
+  --text-primary: #26262a;
+  --text-secondary: #505055;
+  --text-muted: #7e7e86;
+  --background-primary: #ffffff;
+  --background-code: #f5f5f5;
+  --border-light: #e4e4e7;
+  --border-medium: #d3d3d8;
+  --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+}
+
+html[data-theme="dark"] {
+  --obs-bg: #262626;
+  --obs-bg-secondary: #202020;
+  --obs-sidebar-bg: #202020;
+  --obs-ribbon-bg: #1b1b1b;
+  --obs-titlebar-bg: #202020;
+  --obs-titlebar-active: #2b2b2b;
+  --obs-sidebar-hover: rgba(255, 255, 255, 0.065);
+  --obs-sidebar-active: rgba(157, 120, 232, 0.15);
+  --obs-border: #37373a;
+  --obs-border-strong: #4a4a4f;
+  --obs-text: #dadada;
+  --obs-text-secondary: #b6b6ba;
+  --obs-text-muted: #a0a0a6;
+  --obs-text-faint: #77777e;
+  --obs-accent: #9d78e8;
+  --obs-accent-hover: #b092f1;
+  --obs-accent-soft: rgba(157, 120, 232, 0.14);
+  --obs-shadow: 0 14px 36px rgba(0, 0, 0, 0.38);
+  --obs-code-bg: #1d1d1e;
+  --obs-inline-code-bg: #3a304b;
+  --obs-inline-code-text: #c9adff;
+  --obs-table-head: #2d2d2e;
+  --obs-blockquote: #b7b1bf;
+
+  --color-primary: #dadada;
+  --color-primary-dark: #b99cf5;
+  --color-secondary: #9d78e8;
+  --color-accent: #c19cf8;
+  --text-primary: #dadada;
+  --text-secondary: #b6b6ba;
+  --text-muted: #86868d;
+  --background-primary: #262626;
+  --background-code: #1d1d1e;
+  --border-light: #38383a;
+  --border-medium: #4a4a4f;
+}
+
+body.obsidian-layout {
+  font-size: 16px;
+}
+
+.workspace-ribbon {
+  display: flex;
+  flex: 0 0 44px;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 44px;
+  height: 100%;
+  padding: 7px 0;
+  background: var(--obs-ribbon-bg);
+  border-right: 1px solid var(--obs-border);
+}
+
+.ribbon-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.ribbon-action {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  padding: 0;
+  place-items: center;
+  color: var(--obs-text-muted);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ribbon-action:hover {
+  color: var(--obs-text);
+  background: var(--obs-sidebar-hover);
+}
+
+.ribbon-action.is-active {
+  color: var(--obs-accent);
+  background: var(--obs-accent-soft);
+}
+
+.ribbon-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+.ribbon-logo {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 5px;
+  color: var(--obs-accent);
+}
+
+.ribbon-logo svg {
+  width: 23px;
+  height: 23px;
+}
+
+.vault-sidebar {
+  flex-basis: 270px;
+  width: 270px;
+  min-width: 270px;
+}
+
+.sidebar-view-tabs {
+  display: flex;
+  flex: 0 0 36px;
+  gap: 2px;
+  align-items: flex-end;
+  padding: 5px 7px 0;
+  background: var(--obs-sidebar-bg);
+  border-bottom: 1px solid var(--obs-border);
+}
+
+.sidebar-view-tab {
+  padding: 6px 10px;
+  color: var(--obs-text-faint);
+  border-radius: 5px 5px 0 0;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.sidebar-view-tab.is-active {
+  color: var(--obs-text);
+  background: color-mix(in srgb, var(--obs-sidebar-bg) 72%, var(--obs-bg));
+}
+
+.sidebar-header {
+  min-height: 52px;
+  padding: 8px 10px 6px 12px;
+}
+
+.vault-logo {
+  flex-basis: 28px;
+  width: 28px;
+  height: 28px;
+  border-color: transparent;
+  background: transparent;
+  border-radius: 5px;
+}
+
+.vault-logo svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vault-brand-text strong {
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.vault-brand-text small {
+  margin-top: 2px;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.sidebar-search-wrap {
+  padding: 5px 10px 9px;
+}
+
+.sidebar-search {
+  min-height: 34px;
+  padding: 0 8px;
+  background: var(--obs-bg);
+  border-color: transparent;
+  border-radius: 5px;
+}
+
+.sidebar-search:focus-within {
+  border-color: var(--obs-accent);
+  box-shadow: 0 0 0 1px var(--obs-accent-soft);
+}
+
+.sidebar-search input {
+  font-size: 13.5px;
+}
+
+.sidebar-section-heading {
+  padding: 9px 14px 5px;
+  color: var(--obs-text-muted);
+  font-size: 10.5px;
+  font-weight: 550;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.file-tree {
+  padding: 2px 8px 14px;
+}
+
+.tree-folder-toggle,
+.tree-file-link {
+  min-height: 31px;
+  padding: 5px 7px;
+  border-radius: 5px;
+}
+
+.tree-label {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tree-icon {
+  flex-basis: 17px;
+  width: 17px;
+  height: 17px;
+}
+
+.tree-file-link.is-active {
+  color: var(--obs-accent);
+  font-weight: 600;
+  background: var(--obs-sidebar-active);
+}
+
+.tree-file-link.is-active::before {
+  left: 2px;
+  width: 2px;
+  height: 17px;
+}
+
+.sidebar-footer {
+  min-height: 42px;
+  padding: 8px 14px;
+  font-size: 11px;
+}
+
+.workspace-bar {
+  flex-basis: 44px;
+  min-height: 44px;
+  padding: 0 11px;
+  background: var(--obs-titlebar-bg);
+  border-bottom-color: var(--obs-border);
+}
+
+.workspace-tab-list {
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  align-self: stretch;
+  min-width: 0;
+  padding-top: 7px;
+}
+
+.workspace-tab {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  width: min(100%, 340px);
+  height: 36px;
+  padding: 0 13px;
+  color: var(--obs-text-muted);
+  background: var(--obs-titlebar-active);
+  border: 1px solid var(--obs-border);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  font-size: 13px;
+}
+
+.workspace-tab svg {
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+  color: var(--obs-text-muted);
+}
+
+.workspace-tab > span:nth-child(2) {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--obs-text);
+  font-weight: 550;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.workspace-tab-dot {
+  flex: 0 0 6px;
+  width: 6px;
+  height: 6px;
+  margin-left: auto;
+  background: var(--obs-accent);
+  border-radius: 50%;
+}
+
+.workspace-actions {
+  display: none;
+}
+
+.document-container {
+  width: min(100%, 800px);
+  padding: 32px 50px 20px;
+}
+
+.document-pane > header {
+  display: none;
+}
+
+.document-pane p,
+.document-pane li {
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.document-pane p {
+  margin: 1.1rem 0;
+}
+
+.document-pane h2 {
+  padding-bottom: 0;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.42rem;
+  font-weight: 650;
+  border-bottom: 0;
+}
+
+.document-pane h3 {
+  margin-top: 1.65rem;
+  margin-bottom: 0.65rem;
+  font-size: 1.18rem;
+  font-weight: 650;
+}
+
+.document-pane h4 {
+  font-size: 1.03rem;
+}
+
+.document-pane code {
+  font-size: 0.88em;
+}
+
+.document-pane table {
+  font-size: 14.5px;
+}
+
+@media (min-width: 901px) {
+  body.files-collapsed .vault-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .workspace-ribbon {
+    display: none;
+  }
+
+  .vault-sidebar {
+    width: min(86vw, 300px);
+  }
+
+  .workspace-bar {
+    flex-basis: 48px;
+    min-height: 48px;
+    padding: 0 8px;
+  }
+
+  .workspace-tab-list {
+    padding-top: 0;
+  }
+
+  .workspace-tab {
+    width: 100%;
+    height: 34px;
+    border: 0;
+    border-radius: 5px;
+    background: transparent;
+  }
+
+  .workspace-actions {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .document-container {
+    padding: 24px 17px 14px;
+  }
+
+  .document-pane p,
+  .document-pane li {
+    font-size: 16px;
+    line-height: 1.72;
+  }
+
+  .document-pane h2 {
+    font-size: 1.25rem;
+  }
+
+  .document-pane h3 {
+    font-size: 1.08rem;
+  }
+}
