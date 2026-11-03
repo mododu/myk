@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>测试 - 济南市天桥区统计局</title>
+
+    <!-- Description for search engines -->
+    
+    <meta name="description" content="- 年度退库 - 规上转规下 → 报本年剩余月报，不报年报 - 其他审核类型 → 系统自动代报至明年年底（带同期数） - 月度退库： - 下月起不再报表，系统自动代报至明年本月（带同期数）">
+    
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="测试">
+    
+    <meta property="og:description" content="- 年度退库 - 规上转规下 → 报本年剩余月报，不报年报 - 其他审核类型 → 系统自动代报至明年年底（带同期数） - 月度退库： - 下月起不再报表，系统自动代报至明年本月（带同期数）">
+    
+    <meta property="og:url" content="https://mododu.github.io/myk/wiki/测试/">
+    
+    <meta property="og:image" content="https://mododu.github.io/myk/assets/images/default-preview.png">
+    
+    <meta property="og:site_name" content="济南市天桥区统计局">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="测试">
+    
+    <meta name="twitter:description" content="- 年度退库 - 规上转规下 → 报本年剩余月报，不报年报 - 其他审核类型 → 系统自动代报至明年年底（带同期数） - 月度退库： - 下月起不再报表，系统自动代报至明年本月（带同期数）">
+    
+    
+    <meta name="twitter:image" content="https://mododu.github.io/myk/assets/images/default-preview.png">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/myk/static/main.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+
+    <!-- Atom Feed autodiscovery -->
+    
+    <link rel="alternate" type="application/atom+xml" title="济南市天桥区统计局" href="https://mododu.github.io/myk/feed.xml">
+    
+</head>
+<body>
+    <nav class="top-nav">
+        
+            
+            <a href="/myk/wiki/测试/">
+                
+                    贸易专业资料
+                
+            </a>
+        
+    </nav>
+
+    
+    <div class="search-overlay" data-search-overlay hidden>
+        <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search">
+            <input type="search" class="search-input" placeholder="Search pages…" autocomplete="off"
+                   spellcheck="false" aria-label="Search query" data-search-input>
+            <ul class="search-results" data-search-results></ul>
+            <p class="search-empty" data-search-empty hidden>No matching pages.</p>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var overlay = document.querySelector("[data-search-overlay]");
+            if (!overlay) return;
+            var input = overlay.querySelector("[data-search-input]");
+            var list = overlay.querySelector("[data-search-results]");
+            var empty = overlay.querySelector("[data-search-empty]");
+            var indexUrl = "/myk/wiki/search.json";
+            var pages = null, loading = false, active = -1;
+
+            function loadIndex() {
+                if (pages || loading) return;
+                loading = true;
+                fetch(indexUrl).then(function (r) { return r.json(); }).then(function (data) {
+                    pages = data;
+                    if (overlay.getAttribute("hidden") === null) render(input.value);
+                }).catch(function () { loading = false; });
+            }
+
+            function score(page, q) {
+                var title = (page.title || "").toLowerCase();
+                var tags = (page.tags || []).join(" ").toLowerCase();
+                var content = (page.content || "").toLowerCase();
+                if (title.indexOf(q) === 0) return 4;
+                if (title.indexOf(q) !== -1) return 3;
+                if (tags.indexOf(q) !== -1) return 2;
+                if (content.indexOf(q) !== -1) return 1;
+                return 0;
+            }
+
+            function render(query) {
+                var q = query.trim().toLowerCase();
+                list.innerHTML = "";
+                active = -1;
+                if (!q) { empty.setAttribute("hidden", ""); return; }
+                if (!pages) { loadIndex(); return; }
+                var matches = pages.map(function (p) { return { p: p, s: score(p, q) }; })
+                    .filter(function (m) { return m.s > 0; })
+                    .sort(function (a, b) { return b.s - a.s || a.p.title.localeCompare(b.p.title); })
+                    .slice(0, 12);
+                if (!matches.length) { empty.removeAttribute("hidden"); return; }
+                empty.setAttribute("hidden", "");
+                matches.forEach(function (m) {
+                    var li = document.createElement("li");
+                    var a = document.createElement("a");
+                    a.href = m.p.url;
+                    a.className = "search-result";
+                    a.textContent = m.p.title;
+                    li.appendChild(a);
+                    list.appendChild(li);
+                });
+            }
+
+            function setActive(next) {
+                var items = list.querySelectorAll(".search-result");
+                if (!items.length) return;
+                if (active >= 0 && items[active]) items[active].classList.remove("is-active");
+                active = (next + items.length) % items.length;
+                items[active].classList.add("is-active");
+                items[active].scrollIntoView({ block: "nearest" });
+            }
+
+            function open() {
+                overlay.removeAttribute("hidden");
+                document.body.classList.add("search-open");
+                input.value = "";
+                render("");
+                loadIndex();
+                input.focus();
+            }
+            function close() {
+                overlay.setAttribute("hidden", "");
+                document.body.classList.remove("search-open");
+            }
+
+            document.querySelectorAll("[data-search-open]").forEach(function (btn) {
+                btn.addEventListener("click", open);
+            });
+            input.addEventListener("input", function () { render(input.value); });
+            overlay.addEventListener("mousedown", function (e) {
+                if (e.target === overlay) close();
+            });
+            input.addEventListener("keydown", function (e) {
+                var items = list.querySelectorAll(".search-result");
+                if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1); }
+                else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1); }
+                else if (e.key === "Enter") {
+                    if (active >= 0 && items[active]) { window.location.href = items[active].href; }
+                    else if (items[0]) { window.location.href = items[0].href; }
+                }
+            });
+            document.addEventListener("keydown", function (e) {
+                var isOpen = overlay.getAttribute("hidden") === null;
+                if (e.key === "Escape" && isOpen) { close(); return; }
+                var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) ||
+                    document.activeElement.isContentEditable;
+                if (!isOpen && !typing && (e.key === "/" ||
+                    ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k"))) {
+                    e.preventDefault();
+                    open();
+                }
+            });
+        })();
+    </script>
+    
+
+    <article>
+        
+<header>
+    <h1>测试</h1>
+    
+    <p class="page-dates">
+        
+        
+    </p>
+    
+</header>
+
+
+
+<section class="content">
+    <h2 id="_1">工作要点<a class="header-anchor" href="#_1" title="Link to this section">#</a></h2>
+<ul>
+<li><strong>年度退库</strong><ul>
+<li>规上转规下 → 报本年剩余月报，不报年报</li>
+<li>其他审核类型 → 系统自动代报至明年年底（<strong>带同期数</strong>）</li>
+</ul>
+</li>
+<li><strong>月度退库</strong>：<ul>
+<li>下月起不再报表，系统自动代报至明年本月（<strong>带同期数</strong>）</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">审核要点<a class="header-anchor" href="#_2" title="Link to this section">#</a></h2>
+<h3 id="_3">⚪ 法人<a class="header-anchor" href="#_3" title="Link to this section">#</a></h3>
+<ul>
+<li><strong>行业界定</strong><ul>
+<li>是否用于再生产再经营</li>
+<li>专票普票</li>
+</ul>
+</li>
+<li><strong>统计指标</strong><ul>
+<li>审批类型：一般为2；开业时间为去年四季度以后的为1</li>
+<li>单位名称：与工商库一致，特别注意中文全角括号</li>
+<li>行政区划：注册地、经营地均应与数据处理地一致</li>
+<li>主营业务活动：描述具体清晰（<code>具体品名</code>）</li>
+<li>主营业务活动：能否填报E204-2（<code>涉及汽车需核实是否有整车销售</code>）</li>
+<li>行业代码：赋码是否准确</li>
+<li>从业人员数：零售业不小于5人，批发业不小于3人</li>
+</ul>
+</li>
+<li><strong>营业执照</strong>：<ul>
+<li>营业范围：是否包含主营业务活动</li>
+<li>开业时间：是否符合月度入库条件；是否去年四季度以后开业</li>
+</ul>
+</li>
+<li><strong>利润表</strong>：<ul>
+<li>数字：是否清晰</li>
+<li>营业收入：主营业务收入是否达限</li>
+<li>利润：是否为负（<code>亏损情况说明</code>）</li>
+</ul>
+</li>
+<li><strong>纳税申报表</strong>：<ul>
+<li>数字：是否清晰</li>
+<li>营业收入：是否与利润表一致（<code>不一致情况说明</code>）</li>
+<li>截屏：是否满屏截屏（<code>月度</code>）</li>
+</ul>
+</li>
+<li><strong>补充资料</strong><ul>
+<li>无纳税申报表：销售系统截图</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">⚪ 产业<a class="header-anchor" href="#_4" title="Link to this section">#</a></h3>
+<ul>
+<li>与上级法人业务不一致说明</li>
+</ul>
+<h3 id="_5">⚪ 个体<a class="header-anchor" href="#_5" title="Link to this section">#</a></h3>
+<ul>
+<li>无财务账：连续3个月统计报表</li>
+<li>无纳税表：销售系统截图</li>
+</ul>
+</section>
+
+
+
+
+
+    </article>
+
+    <div class="footer-separator"></div>
+
+    <footer>
+        <p class="footer-text">
+            
+            &copy; 2026 <a href="/myk/wiki/测试/">屈祯</a>
+            
+        </p>
+    </footer>
+
+    <!-- KaTeX for math rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false,
+                ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+                ignoredClasses: ['no-katex']
+            });
+        });
+    </script>
+</body>
+</html>
