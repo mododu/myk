@@ -5,7 +5,7 @@
   <link href="https://mododu.github.io/myk/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://mododu.github.io/myk/" rel="alternate" type="text/html"/>
   <id>https://mododu.github.io/myk/</id>
-  <updated>2026-11-03T06:19:40Z</updated>
+  <updated>2026-11-03T08:03:27Z</updated>
   
   <author>
     <name>屈祯</name>
@@ -13,6 +13,138 @@
   
   <generator uri="https://github.com/yyahn/foliate" version="0.12.0">foliate</generator>
 
+  
+  <entry>
+    <title>贸易企业上规入库审核要点</title>
+    <link href="https://mododu.github.io/myk/wiki/贸易企业上规入库审核要点/" rel="alternate" type="text/html"/>
+    <id>https://mododu.github.io/myk/wiki/贸易企业上规入库审核要点/</id>
+    <published>2026-11-03T08:03:27Z</published>
+    <updated>2026-11-03T08:03:27Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="_1">工作要点<a class="header-anchor" href="#_1" title="Link to this section">#</a></h2>
+<ul>
+<li><strong>年度退库</strong><ul>
+<li>规上转规下 → 报本年剩余月报，不报年报</li>
+<li>其他审核类型 → 系统自动代报至明年年底（<strong>带同期数</strong>）</li>
+</ul>
+</li>
+<li><strong>月度退库</strong>：<ul>
+<li>下月起不再报表，系统自动代报至明年本月（<strong>带同期数</strong>）</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">审核要点<a class="header-anchor" href="#_2" title="Link to this section">#</a></h2>
+<h3 id="_3">⚪ 法人<a class="header-anchor" href="#_3" title="Link to this section">#</a></h3>
+<ul>
+<li><strong>行业界定</strong><ul>
+<li>是否用于再生产再经营</li>
+<li>专票普票</li>
+</ul>
+</li>
+<li><strong>统计指标</strong><ul>
+<li>审批类型：一般为2；开业时间为去年四季度以后的为1</li>
+<li>单位名称：与工商库一致，特别注意中文全角括号</li>
+<li>行政区划：注册地、经营地均应与数据处理地一致</li>
+<li>主营业务活动：描述具体清晰（<code>具体品名</code>）</li>
+<li>主营业务活动：能否填报E204-2（<code>涉及汽车需核实是否有整车销售</code>）</li>
+<li>行业代码：赋码是否准确</li>
+<li>从业人员数：零售业不小于5人，批发业不小于3人</li>
+</ul>
+</li>
+<li><strong>营业执照</strong>：<ul>
+<li>营业范围：是否包含主营业务活动</li>
+<li>开业时间：是否符合月度入库条件；是否去年四季度以后开业</li>
+</ul>
+</li>
+<li><strong>利润表</strong>：<ul>
+<li>数字：是否清晰</li>
+<li>营业收入：主营业务收入是否达限</li>
+<li>利润：是否为负（<code>亏损情况说明</code>）</li>
+</ul>
+</li>
+<li><strong>纳税申报表</strong>：<ul>
+<li>数字：是否清晰</li>
+<li>营业收入：是否与利润表一致（<code>不一致情况说明</code>）</li>
+<li>截屏：是否满屏截屏（<code>月度</code>）</li>
+</ul>
+</li>
+<li><strong>补充资料</strong><ul>
+<li>无纳税申报表：销售系统截图</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">⚪ 产业<a class="header-anchor" href="#_4" title="Link to this section">#</a></h3>
+<ul>
+<li>与上级法人业务不一致说明</li>
+</ul>
+<h3 id="_5">⚪ 个体<a class="header-anchor" href="#_5" title="Link to this section">#</a></h3>
+<ul>
+<li>无财务账：连续3个月统计报表</li>
+<li>无纳税表：销售系统截图</li>
+</ul>]]></content>
+    
+  </entry>
+  
+  <entry>
+    <title>2025年高质量发展考核</title>
+    <link href="https://mododu.github.io/myk/wiki/2025年高质量发展考核/" rel="alternate" type="text/html"/>
+    <id>https://mododu.github.io/myk/wiki/2025年高质量发展考核/</id>
+    <published>2026-11-03T08:02:48Z</published>
+    <updated>2026-11-03T08:02:48Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="2">经营主体发展质量 (2分)<a class="header-anchor" href="#2" title="Link to this section">#</a></h2>
+<hr />
+<h3 id="1-vs"><strong>目标计划完成度</strong> (<code>1分</code>) → <code>入库数 VS 目标数</code><a class="header-anchor" href="#1-vs" title="Link to this section">#</a></h3>
+<p><code>法人130 /个体100</code></p>
+<table>
+<thead>
+<tr>
+<th>完成度(%)</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>100+</td>
+<td>0.6-1</td>
+</tr>
+<tr>
+<td>90-99</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>80-89</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>70-79</td>
+<td>0.3</td>
+</tr>
+<tr>
+<td>60-69</td>
+<td>0.2</td>
+</tr>
+<tr>
+<td>00-59</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="05-vs"><strong>入库单位数量增幅</strong> (<code>0.5分</code>) → <code>入库数 VS 去年入库数</code><a class="header-anchor" href="#05-vs" title="Link to this section">#</a></h3>
+<ul>
+<li>高于全市：0.3-0.5 功效系数法</li>
+<li>低于全市：0.1-0.2 功效系数法</li>
+</ul>
+<h3 id="05-vs_1"><strong>入退库比例</strong> (<code>0.5分</code>) → <code>入库数 VS 退库数</code><a class="header-anchor" href="#05-vs_1" title="Link to this section">#</a></h3>
+<p>基准数 = 全市近三年退库单位数量 / 全市近三年新增入库单位数量
+计算数 = 当年退库单位数量 / 当年新增入库单位数量</p>
+<ul>
+<li>计算数 ≤ 基准数：0.3-0.5 功效系数法</li>
+<li>计算数 &gt; 基准数：0.1-0.2 功效系数法</li>
+<li>当年入库即退库：- MIN(0.01* 退库数量, 0.1)</li>
+</ul>]]></content>
+    
+  </entry>
   
   <entry>
     <title>测试</title>
