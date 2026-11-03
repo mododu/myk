@@ -10,11 +10,7 @@
   var sidebarToggle = shell.querySelector("[data-sidebar-toggle]");
   var sidebarClose = shell.querySelector("[data-sidebar-close]");
   var sidebarBackdrop = shell.querySelector("[data-sidebar-backdrop]");
-  var filePanelToggle = shell.querySelector("[data-file-panel-toggle]");
-  var ribbonSearch = shell.querySelector("[data-ribbon-search]");
-  var themeToggles = Array.prototype.slice.call(
-    shell.querySelectorAll("[data-theme-toggle]")
-  );
+  var themeToggle = shell.querySelector("[data-theme-toggle]");
   var searchIndexUrl = shell.getAttribute("data-search-index-url");
   var currentUrl = shell.getAttribute("data-current-url") || "/";
   var totalPages = 0;
@@ -56,20 +52,6 @@
     if (sidebarToggle) {
       sidebarToggle.setAttribute("aria-expanded", String(open));
     }
-    if (filePanelToggle && window.matchMedia("(max-width: 900px)").matches) {
-      filePanelToggle.setAttribute("aria-expanded", String(open));
-    }
-  }
-
-  function setFilePanelCollapsed(collapsed) {
-    document.body.classList.toggle("files-collapsed", collapsed);
-    if (filePanelToggle) {
-      filePanelToggle.classList.toggle("is-active", !collapsed);
-      filePanelToggle.setAttribute("aria-expanded", String(!collapsed));
-    }
-    try {
-      localStorage.setItem("obsidian-files-collapsed", collapsed ? "1" : "0");
-    } catch (error) {}
   }
 
   function saveFolderState() {
@@ -294,46 +276,27 @@
   if (sidebarBackdrop) {
     sidebarBackdrop.addEventListener("click", function () { setSidebar(false); });
   }
-  if (filePanelToggle) {
-    filePanelToggle.addEventListener("click", function () {
-      if (window.matchMedia("(max-width: 900px)").matches) {
-        setSidebar(!document.body.classList.contains("sidebar-open"));
-      } else {
-        setFilePanelCollapsed(!document.body.classList.contains("files-collapsed"));
-      }
-    });
-  }
-  if (ribbonSearch) {
-    ribbonSearch.addEventListener("click", function () {
-      setSidebar(true);
-      if (searchInput) {
-        searchInput.focus();
-        searchInput.select();
-      }
-    });
-  }
   if (treeHost) {
     treeHost.addEventListener("click", function (event) {
       if (event.target.closest(".tree-file-link")) setSidebar(false);
     });
   }
 
-  themeToggles.forEach(function (toggle) {
-    toggle.addEventListener("click", function () {
+  if (themeToggle) {
+    themeToggle.addEventListener("click", function () {
       var current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
       var next = current === "dark" ? "light" : "dark";
       document.documentElement.dataset.theme = next;
       try { localStorage.setItem("obsidian-theme", next); } catch (error) {}
-      updateThemeButtons();
+      updateThemeButton();
     });
-  });
+  }
 
-  function updateThemeButtons() {
+  function updateThemeButton() {
+    if (!themeToggle) return;
     var dark = document.documentElement.dataset.theme === "dark";
-    themeToggles.forEach(function (toggle) {
-      toggle.setAttribute("aria-label", dark ? "切换浅色模式" : "切换深色模式");
-      toggle.setAttribute("title", dark ? "切换浅色模式" : "切换深色模式");
-    });
+    themeToggle.setAttribute("aria-label", dark ? "切换浅色模式" : "切换深色模式");
+    themeToggle.setAttribute("title", dark ? "切换浅色模式" : "切换深色模式");
   }
 
   document.addEventListener("keydown", function (event) {
@@ -359,12 +322,6 @@
     }
   });
 
-  try {
-    if (localStorage.getItem("obsidian-files-collapsed") === "1") {
-      setFilePanelCollapsed(true);
-    }
-  } catch (error) {}
-
-  updateThemeButtons();
+  updateThemeButton();
   loadPages();
 })();
